@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment RIDZZ HOSTING🦅</title>
+  <style>
+    :root {
+      --bg-dark: #0e0e2c;
+      --bg-light: #f5f5f5;
+      --card-dark: #111b3b;
+      --card-light: #ffffff;
+      --text-dark: #ffffff;
+      --text-light: #111;
+      --accent: #00ffc3;
+      --whatsapp: #25D366;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    body.light {
+      background-color: var(--bg-light);
+      color: var(--text-light);
+    }
+
+    .container {
+      padding: 20px;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card {
+      background-color: var(--card-dark);
+      border-radius: 20px;
+      padding: 30px 25px;
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+      text-align: center;
+      max-width: 360px;
+      border: 1px solid var(--accent);
+    }
+
+    body.light .card {
+      background-color: var(--card-light);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .top-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      object-fit: cover;
+    }
+
+    select {
+      background-color: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 10px;
+      padding: 5px 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .theme-toggle input {
+      width: 50px;
+      height: 26px;
+      -webkit-appearance: none;
+      background: #444;
+      outline: none;
+      border-radius: 20px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .theme-toggle input:checked {
+      background: var(--accent);
+    }
+
+    .theme-toggle input::before {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      top: 3px;
+      left: 3px;
+      background: white;
+      transition: 0.3s;
+    }
+
+    .theme-toggle input:checked::before {
+      transform: translateX(24px);
+    }
+
+    h1 {
+      font-size: 22px;
+      margin: 15px 0 25px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pay-btn {
+      background: transparent;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      padding: 10px 15px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .pay-btn:hover {
+      background: var(--accent);
+      color: #000;
+    }
+
+    .info-box {
+      font-size: 14px;
+      margin-bottom: 20px;
+      min-height: 60px;
+    }
+
+    .qris-img {
+      width: 160px;
+      margin-top: 10px;
+      border-radius: 10px;
+      border: 2px solid var(--accent);
+    }
+
+    .note {
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .highlight {
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    .whatsapp-button {
+      background: var(--whatsapp);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      transition: background 0.3s ease;
+    }
+
+    .whatsapp-button:hover {
+      background: #1ebe5d;
+    }
+
+    .copy-btn, .download-btn {
+      margin-top: 10px;
+      background-color: var(--accent);
+      color: #000;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .copy-btn:hover, .download-btn:hover {
+      background-color: #00d3aa;
+    }
+  </style>
+</head>
+<body>
+  <div class="theme-toggle">
+    <input type="checkbox" id="themeSwitch" onchange="toggleTheme()" />
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <div class="top-section">
+        <img src="https://files.catbox.moe/rar2y9.png" class="avatar" alt="Ridzz Avatar" />
+        <select id="language" onchange="setLanguage()">
+          <option value="id">🇮🇩 Indonesia</option>
+          <option value="en">🇬🇧 English</option>
+        </select>
+      </div>
+
+      <h1 id="title">Payment <span class="highlight">RIDZZ HOSTING🦅</span></h1>
+
+      <div class="buttons">
+        <button class="pay-btn" onclick="showInfo('dana')">DANA</button>
+        <button class="pay-btn" onclick="showInfo('gopay')">GoPay</button>
+        <button class="pay-btn" onclick="showInfo('qris')">QRIS</button>
+      </div>
+
+      <div id="payment-info" class="info-box">
+        <p id="select-text">Pilih metode pembayaran di atas.</p>
+      </div>
+
+      <p class="note" id="note-text">
+        Setelah transfer, mohon kirimkan bukti pembayaran ke <span class="highlight">RIDZZ HOSTING🦅</span> melalui WhatsApp.
+      </p>
+
+      <a href="https://wa.me/628895601103" class="whatsapp-button" id="wa-button">Hubungi WhatsApp</a>
+    </div>
+  </div>
+
+  <script>
+    const languageData = {
+      id: {
+        select: "Pilih metode pembayaran di atas.",
+        dana: "DANA:<br>08895601103<br>A/n NO NAME",
+        gopay: "GoPay:<br>082221149370<br>A/n RIDZZ",
+        copy: "Salin Nomor",
+        copied: "Disalin!",
+        note: "Setelah transfer, mohon kirimkan bukti pembayaran ke",
+        wa: "Hubungi WhatsApp",
+        download: "Unduh QRIS"
+      },
+      en: {
+        select: "Select a payment method above.",
+        dana: "DANA:<br>08895601103<br>Acc: NO NAME",
+        gopay: "GoPay:<br>082221149370<br>Acc: RIDZZ",
+        copy: "Copy Number",
+        copied: "Copied!",
+        note: "After transferring, please send the proof of payment to",
+        wa: "Contact WhatsApp",
+        download: "Download QRIS"
+      }
+    };
+
+    let currentLang = "id";
+    const qrisUrl = "https://img1.pixhost.to/images/6960/618450219_ikyystr.jpg";
+
+    function showInfo(method) {
+      const infoBox = document.getElementById("payment-info");
+      let content = "";
+
+      if (method === "dana") {
+        content = `
+          <p><strong>${languageData[currentLang].dana}</strong></p>
+          <button class="copy-btn" onclick="copyText('08895601103')">${languageData[currentLang].copy}</button>
+        `;
+      } else if (method === "gopay") {
+        content = `
+          <p><strong>${languageData[currentLang].gopay}</strong></p>
+          <button class="copy-btn" onclick="copyText('082221149370')">${languageData[currentLang].copy}</button>
+        `;
+      } else if (method === "qris") {
+        content = `
+          <p><strong>QRIS:</strong><br>
+          <img src="${qrisUrl}" alt="QRIS" class="qris-img" /><br>
+          <a href="${qrisUrl}" download="qris-ridzz.jpg">
+            <button class="download-btn">${languageData[currentLang].download}</button>
+          </a>
+          </p>
+        `;
+      }
+
+      infoBox.innerHTML = content;
+    }
+
+    function copyText(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        const buttons = document.querySelectorAll('.copy-btn');
+        buttons.forEach(btn => btn.innerText = languageData[currentLang].copied);
+        setTimeout(() => {
+          buttons.forEach(btn => btn.innerText = languageData[currentLang].copy);
+        }, 1500);
+      });
+    }
+
+    function setLanguage() {
+      currentLang = document.getElementById("language").value;
+      document.getElementById("select-text").innerText = languageData[currentLang].select;
+      document.getElementById("note-text").innerHTML =
+        `${languageData[currentLang].note} <span class="highlight">RIDZZ HOSTING🦅</span> melalui WhatsApp.`;
+      document.getElementById("wa-button").innerText = languageData[currentLang].wa;
+      document.getElementById("payment-info").innerHTML = `<p id="select-text">${languageData[currentLang].select}</p>`;
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle("light");
+    }
+
+    // Start animation
+    window.onload = () => {
+      document.querySelector(".container").style.opacity = "1";
+    };
+  </script>
+</body>
+</html>
